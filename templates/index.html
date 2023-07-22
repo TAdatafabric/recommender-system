@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <title>Fabricity - Data Fabric</title>
+    </head>
+    <body
+        class="
+            flex flex-col
+            justify-between
+            item-center
+            p-8
+            min-h-screen
+            text-gray-800
+            md:flex-row
+        " 
+        style = "background-color: #EBF3F5"
+    >
+        <main class="bg-white p-16 rounded-lg">
+            <h1 class="text-3xl font-bold mb-8">
+              Predict Service Filters in Your Area:
+            </h1>
+
+            <form
+                action="{{ url_for('predict') }}"
+                method="post"
+                class="flex flex-col"
+            >
+
+            <label for="month" class="mt-4 mb-2">Month</label>
+                <select
+                    required="choose month!"
+                    name="month"
+                    id="month"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option disabled selected>-- Select Month --</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+
+                <label for="day_name" class="mt-4 mb-2">Day</label>
+                <select
+                    required="choose day name!"
+                    name="day_name"
+                    id="day_name"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option disabled selected>-- Select Day --</option>
+                    <option value="1">Monday</option>
+                    <option value="2">Tuesday</option>
+                    <option value="3">Wednesday</option>
+                    <option value="4">Thursday</option>
+                    <option value="5">Friday</option>
+                    <option value="6">Saturday</option>
+                    <option value="7">Sunday</option>
+                </select>
+
+                <label for="hour" class="mt-4 mb-2">Time</label>
+                <select
+                    required="choose hour!"
+                    name="hour"
+                    id="hour"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option disabled selected>-- Select Time --</option>
+                    <option value="1">01.00 WIB</option>
+                    <option value="2">02.00 WIB</option>
+                    <option value="3">03.00 WIB</option>
+                    <option value="4">04.00 WIB</option>
+                    <option value="5">05.00 WIB</option>
+                    <option value="6">06.00 WIB</option>
+                    <option value="7">07.00 WIB</option>
+                    <option value="8">08.00 WIB</option>
+                    <option value="9">09.00 WIB</option>
+                    <option value="10">10.00 WIB</option>
+                    <option value="11">11.00 WIB</option>
+                    <option value="12">12.00 WIB</option>
+                    <option value="13">13.00 WIB</option>
+                    <option value="14">14.00 WIB</option>
+                    <option value="15">15.00 WIB</option>
+                    <option value="16">16.00 WIB</option>
+                    <option value="17">17.00 WIB</option>
+                    <option value="18">18.00 WIB</option>
+                    <option value="19">19.00 WIB</option>
+                    <option value="20">20.00 WIB</option>
+                    <option value="21">21.00 WIB</option>
+                    <option value="22">22.00 WIB</option>
+                    <option value="23">23.00 WIB</option>
+                    <option value="24">00.00 WIB</option>
+                </select>
+
+                <label for="payment_type" class="mt-4 mb-2">Payment Type</label>
+                <select
+                    required="choose payment type!"
+                    name="payment_type"
+                    id="payment_type"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option disabled selected>-- Select Payment Type --</option>
+                    <option value="1">Pre Paid</option>
+                    <option value="2">Post Paid</option>
+                </select>
+
+                <label for="city_name" class="mt-4 mb-2">City Name</label>
+                <select
+                    required
+                    name="city_name"
+                    id="city_name"
+                    class="p-4 bg-gray-100 rounded-md"
+                >
+                    <option disabled selected>-- Select City Name --</option>
+                    <option value="1">AMBON</option>
+                    <option value="2">BALIKPAPAN</option>
+                    <option value="3">BANDA ACEH</option>
+                    <option value="4">BANDAR LAMPUNG</option>
+                    <option value="5">BANDUNG</option>
+                    <option value="6">BANJARMASIN</option>
+                    <option value="7">BANYUWANGI</option>
+                    <option value="8">BATAM</option>
+                    <option value="9">BATURAJA</option>
+                    <option value="10">BAU-BAU</option>
+                    <option value="11">BIMA</option>
+                    <option value="12">BLITAR</option>
+                    <option value="13">BOGOR</option>
+                    <option value="14">BONTANG</option>
+                    <option value="15">BRASTAGI</option>
+                    <option value="16">CIANJUR</option>
+                    <option value="17">CILACAP</option>
+                    <option value="18">CIREBON</option>
+                    <option value="19">CURUP</option>
+                    <option value="20">DENPASAR</option>
+                    <option value="21">DUMAI</option>
+                    <option value="22">GARUT</option>
+                    <option value="23">GORONTALO</option>
+                    <option value="24">INDRAMAYU</option>
+                    <option value="25">JAKARTA</option>
+                    <option value="26">JAMBI</option>
+                    <option value="27">JEMBER</option>
+                    <option value="28">KARAWANG</option>
+                    <option value="29">KAYU AGUNG</option>
+                    <option value="30">KEBUMEN</option>
+                    <option value="31">KEDIRI</option>
+                    <option value="32">KENDARI</option>
+                    <option value="33">KLATEN</option>
+                    <option value="34">KOLAKA UTARA</option>
+                    <option value="35">KOTABARU</option>
+                    <option value="36">KOTAMOBAGU</option>
+                    <option value="37">KUALA TUNGKAL</option>
+                    <option value="38">KUDUS</option>
+                    <option value="39">KUPANG</option>
+                    <option value="40">LHOKSUMAWE</option>
+                    <option value="41">LUBUK LINGGAU</option>
+                    <option value="42">MADIUN</option>
+                    <option value="43">MAGELANG</option>
+                    <option value="44">MAJALENGKA</option>
+                    <option value="45">MAKASAR</option>
+                    <option value="46">MALANG</option>
+                    <option value="47">MANADO</option>
+                    <option value="48">MATARAM</option>
+                    <option value="49">MEDAN</option>
+                    <option value="50">MENGGALA</option>
+                    <option value="51">METRO</option>
+                    <option value="52">MOJOKERTO</option>
+                    <option value="53">MUARA BUNGO</option>
+                    <option value="54">MUARA ENIM</option>
+                    <option value="55">MUNTOK</option>
+                    <option value="56">PADANG</option>
+                    <option value="57">PALANGKARAYA</option>
+                    <option value="58">PALEMBANG</option>
+                    <option value="59">PALU</option>
+                    <option value="60">PAMEKASAN</option>
+                    <option value="61">PANDEGLANG</option>
+                    <option value="62">PANGKAL PINANG</option>
+                    <option value="63">PANGKALAN BRANDAN</option>
+                    <option value="64">PARE-PARE</option>
+                    <option value="65">PASURUAN</option>
+                    <option value="66">PEKALONGAN</option>
+                    <option value="67">PEKANBARU</option>
+                    <option value="68">PEMATANG SIANTAR</option>
+                    <option value="69">PONOROGO</option>
+                    <option value="70">PONTIANAK</option>
+                    <option value="71">PROBOLINGGO</option>
+                    <option value="72">PURWAKARTA</option>
+                    <option value="73">PURWODADI</option>
+                    <option value="74">PURWOKERTO</option>
+                    <option value="75">RANGKASBITUNG</option>
+                    <option value="76">RANTEPAO</option>
+                    <option value="77">SABANG</option>
+                    <option value="78">SALATIGA</option>
+                    <option value="79">SAMARINDA</option>
+                    <option value="80">SAMPANG</option>
+                    <option value="81">SAMPIT</option>
+                    <option value="82">SELONG</option>
+                    <option value="83">SEMARANG</option>
+                    <option value="84">SERANG</option>
+                    <option value="85">SIBOLGA</option>
+                    <option value="86">SIGLI</option>
+                    <option value="87">SINGARAJA</option>
+                    <option value="88">SOLO</option>
+                    <option value="89">SOROAKO</option>
+                    <option value="90">SORONG</option>
+                    <option value="91">SUBANG</option>
+                    <option value="92">SUKABUMI</option>
+                    <option value="93">SUMBAWA BESAR</option>
+                    <option value="94">SUMEDANG</option>
+                    <option value="95">SUMENEP</option>
+                    <option value="96">SURABAYA</option>
+                    <option value="97">TANJUNG BALAI KARIMU</option>
+                    <option value="98">TANJUNG PANDAN</option>
+                    <option value="99">TANJUNG PINANG</option>
+                    <option value="100">TANJUNG TABALONG</option>
+                    <option value="101">TASIKMALAYA</option>
+                    <option value="102">TEBING TINGGI DELI</option>
+                    <option value="103">TEGAL</option>
+                    <option value="104">TUBAN</option>
+                    <option value="105">TULUNG AGUNG</option>
+                    <option value="106">WONOGIRI</option>
+                    <option value="107">YOGYAKARTA</option>
+                </select>
+
+
+                <label for="usage_unit" class="mt-4 mb-2">Total Use of Telecommunication Services</label>
+                <input
+                    type="text"
+                    name="usage_unit"
+                    placeholder="0"
+                    required
+                    oninput="validateUsageUnit(this)"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <script>
+                    function validateUsageUnit(input) {
+                      var value = parseInt(input.value);
+                    
+                      if (value > 9999999999) {
+                        input.setCustomValidity("Input jumlah penggunaan layanan telekomunikasi tidak sesuai!");
+                      } else {
+                        input.setCustomValidity(""); // Menghapus pesan kesalahan khusus
+                      }
+                    }
+                    </script>
+
+                <button
+                    type="submit"
+                    class="
+                        flex
+                        justify-center
+                        align-center
+                        mt-8
+                        p-4
+                        text-white
+                        rounded-md
+                    "
+                    style = "background-color: #1F2937"
+                >
+                    PREDICT NOW
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-arrow-right ml-4"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+        </main>
+        <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
+            <div class="bg-white p-16 rounded-lg">
+                <h1 class="text-2xl mb-8">
+                    System recommendations for service filters in your area are
+                </h1>
+                <h2 class="text-5xl font-bold">Service Filter {{ output }}</h2>
+                
+
+            </div>
+        </section>
+    </body>
+</html>
